@@ -112,14 +112,14 @@ export default function Gallery() {
 
   return (
     <div 
-      className="w-full py-28 px-6 md:px-12"
+      className="w-full py-16 lg:py-28 px-4 sm:px-8 lg:px-16"
       style={{ background: "linear-gradient(135deg, var(--color-blush) 0%, var(--color-ivory) 50%, var(--color-blush-deep) 100%)" }}
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4">
-          <h2 ref={headerRef} className="text-[40px] md:text-[52px] leading-tight text-[var(--color-text-dark)] flex flex-wrap justify-center overflow-hidden" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 ref={headerRef} className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-[var(--color-text-dark)] flex flex-wrap justify-center overflow-hidden" style={{ fontFamily: "var(--font-display)" }}>
             {title.split(" ").map((word, i) => (
               <span key={i} className="inline-block mr-[0.3em] overflow-visible">
                 {word.split("").map((c, j) => (

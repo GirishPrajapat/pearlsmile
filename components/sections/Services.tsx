@@ -83,7 +83,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="w-full bg-[var(--color-ivory-warm)] py-28 px-6 md:px-12">
+    <div className="w-full bg-[var(--color-ivory-warm)] py-16 lg:py-28 px-4 sm:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         
         {/* Header */}
@@ -91,7 +91,7 @@ export default function Services() {
           <span className="text-[11px] tracking-[0.15em] text-[var(--color-rose)] font-bold uppercase" style={{ fontFamily: "var(--font-body)" }}>
             OUR SERVICES
           </span>
-          <h2 className="text-[40px] md:text-[52px] leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
             Crafted Care for Every Smile
           </h2>
           <p className="text-[18px] text-[var(--color-text-muted)] max-w-2xl" style={{ fontFamily: "var(--font-body)" }}>
@@ -104,7 +104,7 @@ export default function Services() {
           {SERVICES_DATA.map((service, i) => (
             <li 
               key={i} 
-              className={cn("min-h-[14rem] list-none opacity-0", service.area)}
+              className={cn("min-h-[10rem] md:min-h-[14rem] list-none opacity-0", service.area)}
             >
               <div className="relative h-full rounded-[1.25rem] border border-[var(--color-blush-deep)] z-10">
                 <GlowingEffect

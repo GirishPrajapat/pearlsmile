@@ -30,7 +30,7 @@ export default function Hero() {
       <Particles className="absolute inset-0 z-0 pointer-events-none" quantity={60} color="#F0B8D0" vy={-0.1} />
 
       {/* CONTENT ENTRANCE STAGGER WRAPPER */}
-      <div className="grid grid-cols-2 h-screen items-center px-16 gap-8 relative z-10 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-auto min-h-screen items-center px-6 lg:px-16 gap-4 pt-24 pb-12 relative z-10 max-w-[1400px] mx-auto">
         
         {/* LEFT COLUMN */}
         <div className="flex flex-col justify-center gap-6 z-10 text-left">
@@ -48,7 +48,7 @@ export default function Hero() {
 
           {/* 2. HEADLINE */}
           <motion.h1 
-            className="text-[44px] lg:text-[80px] leading-[1.1] text-[var(--color-text-dark)] flex flex-col" 
+            className="text-4xl lg:text-[80px] leading-[1.1] text-[var(--color-text-dark)] flex flex-col" 
             style={{ fontFamily: "var(--font-display)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function Hero() {
 
           {/* 3. SUBTEXT */}
           <motion.p
-            className="text-[18px] text-[var(--color-text-muted)] max-w-[520px] leading-relaxed"
+            className="text-base lg:text-[18px] text-[var(--color-text-muted)] max-w-[520px] leading-relaxed"
             style={{ fontFamily: "var(--font-body)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,21 +71,21 @@ export default function Hero() {
 
           {/* 4. CTA BUTTONS */}
           <motion.div 
-            className="flex flex-wrap items-center gap-4 mt-2"
+            className="flex flex-col sm:flex-row gap-3 w-full mt-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
             <a
               href="#book"
-              className="rounded-full bg-[var(--color-rose)] text-white px-8 py-3.5 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 font-medium"
+              className="w-full sm:w-auto text-center rounded-full bg-[var(--color-rose)] text-white px-8 py-3.5 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 font-medium"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Book Appointment
             </a>
             <a
               href="#services"
-              className="rounded-full border-2 border-[var(--color-sage)] text-[var(--color-sage-dark)] px-8 py-3.5 hover:bg-[var(--color-sage-light)]/20 transition-all duration-300 font-medium"
+              className="w-full sm:w-auto text-center rounded-full border-2 border-[var(--color-sage)] text-[var(--color-sage-dark)] px-8 py-3.5 hover:bg-[var(--color-sage-light)]/20 transition-all duration-300 font-medium"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Explore Services
@@ -94,22 +94,22 @@ export default function Hero() {
 
           {/* 6. STATS ROW */}
           <motion.div 
-            className="flex items-center gap-6 mt-8 divide-x divide-[var(--color-blush-deep)]"
+            className="flex items-center gap-4 lg:gap-6 mt-8 divide-x divide-[var(--color-blush-deep)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <div className="flex flex-col pr-6">
-              <span className="text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>2000+</span>
-              <span className="text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Happy Patients</span>
+            <div className="flex flex-col pr-4 lg:pr-6">
+              <span className="text-2xl lg:text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>2000+</span>
+              <span className="text-xs lg:text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Happy Patients</span>
             </div>
-            <div className="flex flex-col px-6">
-              <span className="text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>15+</span>
-              <span className="text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Years Experience</span>
+            <div className="flex flex-col px-4 lg:px-6">
+              <span className="text-2xl lg:text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>15+</span>
+              <span className="text-xs lg:text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Years Experience</span>
             </div>
-            <div className="flex flex-col pl-6">
-              <span className="text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>50+</span>
-              <span className="text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Smiles Transformed</span>
+            <div className="flex flex-col pl-4 lg:pl-6">
+              <span className="text-2xl lg:text-[32px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-display)" }}>50+</span>
+              <span className="text-xs lg:text-[13px] text-[var(--color-text-muted)]" style={{ fontFamily: "var(--font-body)" }}>Smiles Transformed</span>
             </div>
           </motion.div>
 
@@ -117,7 +117,7 @@ export default function Hero() {
 
         {/* RIGHT COLUMN */}
         <div 
-          className="flex items-center justify-center relative z-10 w-full h-full"
+          className="flex items-center justify-center relative w-full order-first lg:order-last py-8 lg:py-0 z-10 h-full"
           onMouseMove={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             setMousePos({
@@ -129,15 +129,14 @@ export default function Hero() {
         >
           {/* 5. THE 2D INTERACTIVE TOOTH CENTERPIECE */}
           <div style={{ perspective: "1000px" }} 
-            className="relative w-[420px] h-[480px] mx-auto">
+            className="relative w-48 h-56 lg:w-[420px] lg:h-[480px] mx-auto">
             
             {/* Glow behind tooth */}
-            <div className="absolute inset-0 rounded-full"
+            <div className="absolute inset-0 rounded-full scale-50 lg:scale-[0.8] translate-y-[10%]"
               style={{
                 background: "radial-gradient(circle, #F0B8D0 0%, transparent 70%)",
                 filter: "blur(40px)",
                 opacity: 0.6,
-                transform: "scale(0.8) translateY(10%)",
               }}
             />
 
@@ -171,16 +170,16 @@ export default function Hero() {
 
             {/* Floating sparkle dots */}
             {[
-              { top: "10%", left: "5%", color: "#F0B8D0", size: 10, delay: 0 },
-              { top: "20%", right: "8%", color: "#B8D4BB", size: 8, delay: 0.4 },
-              { top: "60%", left: "2%", color: "#D4718A", size: 6, delay: 0.8 },
-              { top: "70%", right: "5%", color: "#F0B8D0", size: 10, delay: 1.2 },
-              { top: "40%", left: "8%", color: "#B8D4BB", size: 7, delay: 0.6 },
-              { top: "85%", left: "30%", color: "#D4718A", size: 8, delay: 1.0 },
+              { top: "10%", left: "5%", color: "#F0B8D0", size: 10, delay: 0, hide: false },
+              { top: "20%", right: "8%", color: "#B8D4BB", size: 8, delay: 0.4, hide: true },
+              { top: "60%", left: "2%", color: "#D4718A", size: 6, delay: 0.8, hide: false },
+              { top: "70%", right: "5%", color: "#F0B8D0", size: 10, delay: 1.2, hide: true },
+              { top: "40%", left: "8%", color: "#B8D4BB", size: 7, delay: 0.6, hide: false },
+              { top: "85%", left: "30%", color: "#D4718A", size: 8, delay: 1.0, hide: true },
             ].map((dot, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full pointer-events-none"
+                className={`absolute rounded-full pointer-events-none ${dot.hide ? 'hidden lg:block' : ''}`}
                 style={{
                   width: dot.size,
                   height: dot.size,
@@ -201,7 +200,7 @@ export default function Hero() {
 
             {/* Floating stat pills */}
             <motion.div
-              className="absolute left-[-40px] top-[25%] bg-white rounded-full px-5 py-3 shadow-xl border flex items-center gap-3"
+              className="absolute left-[-40px] top-[25%] bg-white rounded-full px-5 py-3 shadow-xl border hidden lg:flex items-center gap-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -214,7 +213,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute right-[-40px] top-[15%] bg-white rounded-full px-5 py-3 shadow-xl border flex items-center gap-3"
+              className="absolute right-[-40px] top-[15%] bg-white rounded-full px-5 py-3 shadow-xl border hidden lg:flex items-center gap-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, 6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
@@ -227,7 +226,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute right-[-35px] bottom-[25%] bg-white rounded-full px-5 py-3 shadow-xl border flex items-center gap-3"
+              className="absolute right-[-35px] bottom-[25%] bg-white rounded-full px-5 py-3 shadow-xl border hidden lg:flex items-center gap-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}

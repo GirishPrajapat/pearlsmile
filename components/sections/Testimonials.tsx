@@ -38,7 +38,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <div className="w-full bg-[var(--color-blush)] relative py-28 px-6 overflow-hidden">
+    <div className="w-full bg-[var(--color-blush)] relative py-16 lg:py-28 px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* Subtle radial gradient overlay */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,var(--color-blush-deep)_0%,transparent_70%)] opacity-30" />
       
@@ -53,7 +53,7 @@ export default function Testimonials() {
           <span className="text-[11px] tracking-[0.15em] text-[var(--color-rose-dark)] font-bold uppercase" style={{ fontFamily: "var(--font-body)" }}>
             PATIENT STORIES
           </span>
-          <h2 className="text-[40px] md:text-[52px] leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
             Smiles We&apos;ve Transformed
           </h2>
         </div>

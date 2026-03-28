@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-4 left-0 right-0 z-50 mx-auto w-max max-w-[90vw] md:max-w-4xl flex items-center gap-4 md:gap-10 px-6 md:px-10 py-4 rounded-full transition-all duration-300"
+        className="fixed top-4 left-0 right-0 z-50 mx-auto w-[90vw] md:w-max max-w-[90vw] md:max-w-4xl flex items-center justify-between md:justify-start gap-4 md:gap-10 px-6 md:px-10 py-4 rounded-full transition-all duration-300"
         style={{
           background: scrolled ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.15)",
           backdropFilter: scrolled ? "blur(32px)" : "blur(20px)",
@@ -47,7 +47,7 @@ export default function Navbar() {
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, "#home")}
-          className="flex items-center gap-2 text-[var(--color-rose)] font-bold text-xl shrink-0"
+          className="flex items-center gap-2 text-[var(--color-rose)] font-bold text-sm md:text-xl shrink-0"
           style={{ fontFamily: "var(--font-display)" }}
         >
           🦷 PearlSmile

@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function BookAppointment() {
   return (
-    <div id="book" className="w-full bg-gradient-to-b from-[var(--color-rose)] to-[var(--color-rose-dark)] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div id="book" className="w-full bg-gradient-to-b from-[var(--color-rose)] to-[var(--color-rose-dark)] py-16 lg:py-28 px-4 sm:px-8 lg:px-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <HighlightGroup className="w-full h-full relative">
           <HighlighterItem className="rounded-3xl bg-white shadow-2xl relative">
@@ -15,12 +15,12 @@ export default function BookAppointment() {
               quantity={120} color="#FFFFFF" staticity={30} ease={50} vy={-0.1} 
             />
 
-            <div className="relative z-10 grid lg:grid-cols-2 gap-12 p-10 md:p-14 lg:p-16">
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 p-6 sm:p-10 lg:p-16">
               
               {/* Left Column - Info */}
               <div className="flex flex-col gap-8">
                 <div>
-                  <h2 className="text-[36px] md:text-[44px] leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
                     Ready for Your Best Smile?
                   </h2>
                   <p className="text-[17px] text-[var(--color-text-muted)] mt-4 leading-[1.6]" style={{ fontFamily: "var(--font-body)" }}>

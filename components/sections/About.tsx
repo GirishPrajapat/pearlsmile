@@ -28,7 +28,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="w-full bg-[var(--color-ivory)] py-28 px-6 md:px-12 overflow-hidden">
+    <div className="w-full bg-[var(--color-ivory)] py-16 lg:py-28 px-4 sm:px-8 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Column - Image */}
@@ -63,7 +63,7 @@ export default function About() {
           </span>
           
           <div>
-            <h2 className="text-[40px] md:text-[48px] text-[var(--color-text-dark)] leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[var(--color-text-dark)] leading-tight" style={{ fontFamily: "var(--font-display)" }}>
               Dr. Priya Sharma
             </h2>
             <p className="text-[18px] text-[var(--color-rose)]" style={{ fontFamily: "var(--font-body)" }}>

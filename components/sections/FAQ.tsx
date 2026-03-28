@@ -62,11 +62,11 @@ export default function FAQ() {
   };
 
   return (
-    <div className="w-full bg-[var(--color-ivory)] py-28 px-6">
+    <div className="w-full bg-[var(--color-ivory)] py-16 lg:py-28 px-4 sm:px-8 lg:px-16">
       <div className="max-w-[860px] mx-auto flex flex-col gap-16">
         
         <div className="text-center">
-          <h2 className="text-[40px] md:text-[52px] leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-display)" }}>
             Common Questions
           </h2>
           <p className="text-[18px] text-[var(--color-text-muted)] mt-4" style={{ fontFamily: "var(--font-body)" }}>
