@@ -200,7 +200,7 @@ export default function Hero() {
 
             {/* Floating stat pills */}
             <motion.div
-              className="absolute left-[-10px] lg:left-[-40px] top-[25%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
+              className="absolute left-[-40px] lg:left-[-40px] top-[25%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -213,7 +213,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute right-[-10px] lg:right-[-40px] top-[15%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
+              className="absolute right-[-40px] lg:right-[-40px] top-[15%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, 6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
@@ -226,7 +226,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute right-[-10px] lg:right-[-35px] bottom-[25%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
+              className="absolute right-[-35px] lg:right-[-35px] bottom-[25%] bg-white rounded-full shadow-lg border flex items-center gap-2 px-3 py-1.5 lg:px-5 lg:py-3"
               style={{ borderColor: "var(--color-blush-deep)" }}
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
