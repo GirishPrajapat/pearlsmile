@@ -40,10 +40,10 @@ export const AnimatedTestimonials = ({
   }, [testimonials]);
 
   return (
-    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
+    <div className={cn("max-w-sm md:max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-[500px] w-full">
             {mounted && (
               <AnimatePresence>
                 {testimonials.map((testimonial, index) => (
@@ -81,13 +81,13 @@ export const AnimatedTestimonials = ({
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
-            <h3 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-dark)" }}>
+            <h3 className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-dark)" }}>
               {testimonials[active].name}
             </h3>
-            <p className="text-sm mt-1" style={{ color: "var(--color-rose)" }}>
+            <p className="text-base mt-1" style={{ color: "var(--color-rose)" }}>
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg mt-8" style={{ color: "var(--color-text-muted)" }}>
+            <motion.p className="text-2xl mt-10" style={{ color: "var(--color-text-muted)" }}>
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -103,15 +103,15 @@ export const AnimatedTestimonials = ({
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">
             <button onClick={handlePrev}
-              className="h-9 w-9 rounded-full flex items-center justify-center group/button transition-all duration-200 hover:scale-110"
+              className="h-12 w-12 rounded-full flex items-center justify-center group/button transition-all duration-200 hover:scale-110"
               style={{ backgroundColor: "var(--color-blush)" }}>
-              <IconArrowLeft className="h-5 w-5 group-hover/button:rotate-12 transition-transform duration-300"
+              <IconArrowLeft className="h-6 w-6 group-hover/button:rotate-12 transition-transform duration-300"
                 style={{ color: "var(--color-rose)" }} />
             </button>
             <button onClick={handleNext}
-              className="h-9 w-9 rounded-full flex items-center justify-center group/button transition-all duration-200 hover:scale-110"
+              className="h-12 w-12 rounded-full flex items-center justify-center group/button transition-all duration-200 hover:scale-110"
               style={{ backgroundColor: "var(--color-rose)" }}>
-              <IconArrowRight className="h-5 w-5 group-hover/button:-rotate-12 transition-transform duration-300 text-white" />
+              <IconArrowRight className="h-6 w-6 group-hover/button:-rotate-12 transition-transform duration-300 text-white" />
             </button>
           </div>
         </div>

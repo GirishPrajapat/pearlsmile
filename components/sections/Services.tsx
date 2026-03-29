@@ -14,21 +14,21 @@ const SERVICES_DATA = [
     desc: "Professional whitening treatments that safely brighten your smile up to 8 shades in a single visit.",
     icon: Sparkles,
     area: "md:[grid-area:1/1/2/5]",
-    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80"
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80"
   },
   {
     title: "Braces & Aligners",
     desc: "Options like Invisalign properly align your teeth discretely and comfortably.",
     icon: AlignCenter,
     area: "md:[grid-area:1/5/2/9]",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffbb73f69f3?w=400&q=80"
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=80"
   },
   {
     title: "Root Canal",
     desc: "Painless procedures designed to save your natural tooth seamlessly.",
     icon: Syringe,
     area: "md:[grid-area:1/9/2/13]",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80"
+    image: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80"
   },
   {
     title: "Dental Implants",
@@ -42,14 +42,14 @@ const SERVICES_DATA = [
     desc: "Complete revitalizations involving veneers, contouring, and advanced restorative techniques.",
     icon: Star,
     area: "md:[grid-area:2/7/3/13]",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80"
+    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80"
   },
   {
     title: "Cleaning & Checkup",
     desc: "Essential preventative care encompassing deep tartar removal, polishing, and comprehensive oral health assessments to keep your smile pristine.",
     icon: ShieldCheck,
     area: "md:[grid-area:3/1/4/13]",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=80"
+    image: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=400&q=80"
   },
 ];
 
@@ -133,12 +133,14 @@ export default function Services() {
                       src={service.image}
                       alt={service.title}
                       fill
+                      priority={false}
                       className="object-cover"
+                      onError={(e) => { e.currentTarget.style.display = 'none' }}
                     />
                     {/* Dark overlay so text stays readable */}
                     <div className="absolute inset-0"
                       style={{
-                        background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%)"
+                        background: "linear-gradient(to top, rgba(180, 60, 90, 0.85) 0%, rgba(180, 60, 90, 0.4) 50%, rgba(180, 60, 90, 0.1) 100%)"
                       }}
                     />
                   </motion.div>
