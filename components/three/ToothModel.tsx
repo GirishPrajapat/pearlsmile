@@ -11,10 +11,13 @@ export default function ToothModel() {
   const targetRot = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Make the tooth white and glossy
-    scene.traverse((child) => {
-      if ((child as THREE.Mesh).isMesh) {
-        const mesh = child as THREE.Mesh;
+  if (!scene) return;
+
+  scene.traverse((child) => {
+    if ((child as THREE.Mesh).isMesh) {
+      const mesh = child as THREE.Mesh;
+
+      if (!mesh.userData.isModified) {
         mesh.material = new THREE.MeshPhysicalMaterial({
           color: "#F8F6F2",
           roughness: 0.05,
@@ -26,11 +29,16 @@ export default function ToothModel() {
           clearcoatRoughness: 0.03,
           ior: 1.48,
         });
+
         mesh.castShadow = true;
         mesh.receiveShadow = true;
+
+        mesh.userData.isModified = true; // 🔥 prevents re-application
       }
-    });
-  }, [scene]);
+    }
+  });
+}, [scene]);
+
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {

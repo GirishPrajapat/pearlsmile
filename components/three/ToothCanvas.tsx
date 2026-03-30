@@ -20,6 +20,10 @@ export default function ToothCanvas() {
         castShadow
       />
       <Environment preset="studio" />
+      <mesh>
+       <boxGeometry />
+       <meshStandardMaterial color="red" />
+      </mesh>
       <ToothModel />
       <OrbitControls
         enableZoom={false}
