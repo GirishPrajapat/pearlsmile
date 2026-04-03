@@ -1,9 +1,52 @@
 "use client";
 
+import { useState } from "react";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import { MapPin, Phone, Clock } from "lucide-react";
 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQKQf-fHJRXB0whfSbfI1I2DF6rQbUwL-5-tA6oYo4s0vHX_olAuYg7m9A2jREHwkG/exec";
+
+const sendToGoogleSheets = async (data: object) => {
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    console.error("Failed to send data:", error);
+  }
+};
+
 export default function BookAppointment() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [visitType, setVisitType] = useState("");
+  const [date, setDate] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleBooking = async () => {
+    // Open WhatsApp IMMEDIATELY
+    const whatsappMessage = encodeURIComponent(
+      `Hi Dr. Priya! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nVisit Type: ${visitType}\nPreferred Date: ${date}\nMessage: ${message}`
+    );
+    window.open(
+      `https://wa.me/919082179832?text=${whatsappMessage}`,
+      "_blank"
+    );
+
+    // Save to Google Sheets in background (no await)
+    sendToGoogleSheets({
+      name: name,
+      phone: phone,
+      visitType: visitType,
+      date: date,
+      message: message,
+      source: "Booking Form",
+    });
+  };
+
   return (
     <div id="book" className="w-full bg-gradient-to-b from-[var(--color-rose)] to-[var(--color-rose-dark)] py-16 lg:py-28 px-4 sm:px-8 lg:px-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -58,6 +101,8 @@ export default function BookAppointment() {
                   <input 
                     type="text" 
                     placeholder="Full Name" 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full rounded-xl border border-[var(--color-blush-deep)] bg-[var(--color-ivory)] px-5 py-3.5 text-[15px] text-[var(--color-text-dark)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--color-rose)] focus:border-transparent transition-all placeholder:text-gray-400"
                     style={{ fontFamily: "var(--font-body)" }}
                   />
@@ -65,43 +110,64 @@ export default function BookAppointment() {
                   <input 
                     type="tel" 
                     placeholder="Phone Number" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className="w-full rounded-xl border border-[var(--color-blush-deep)] bg-[var(--color-ivory)] px-5 py-3.5 text-[15px] text-[var(--color-text-dark)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--color-rose)] focus:border-transparent transition-all placeholder:text-gray-400"
                     style={{ fontFamily: "var(--font-body)" }}
                   />
                   
-                  <div className="relative">
-                    <select 
-                      defaultValue=""
-                      className="w-full appearance-none rounded-xl border border-[var(--color-blush-deep)] bg-[var(--color-ivory)] px-5 py-3.5 text-[15px] text-[var(--color-text-dark)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--color-rose)] focus:border-transparent transition-all placeholder:text-gray-400"
-                      style={{ fontFamily: "var(--font-body)" }}
-                    >
-                      <option value="" disabled hidden>Select Service</option>
-                      <option value="whitening">Teeth Whitening</option>
-                      <option value="braces">Braces & Aligners</option>
-                      <option value="root_canal">Root Canal</option>
-                      <option value="implants">Dental Implants</option>
-                      <option value="makeover">Smile Makeover</option>
-                      <option value="checkup">Cleaning & Checkup</option>
-                    </select>
-                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
-                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                  <div>
+                    <label className="block text-xs text-[var(--color-text-muted)] mb-2" style={{ fontFamily: "var(--font-body)" }}>
+                      Type of Visit
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {["First Visit", "Follow-up", "Emergency"].map((type) => (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => setVisitType(type)}
+                          className={`rounded-full px-4 py-2.5 text-sm cursor-pointer transition-all ${
+                            visitType === type 
+                              ? "bg-[var(--color-rose)] text-white border border-[var(--color-rose)] shadow-md" 
+                              : "border border-[var(--color-blush-deep)] bg-[var(--color-ivory)] text-[var(--color-text-muted)]"
+                          }`}
+                          style={{ fontFamily: "var(--font-body)" }}
+                        >
+                          {type}
+                        </button>
+                      ))}
                     </div>
                   </div>
                   
                   <input 
                     type="date" 
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     className="w-full rounded-xl border border-[var(--color-blush-deep)] bg-[var(--color-ivory)] px-5 py-3.5 text-[15px] text-[var(--color-text-dark)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--color-rose)] focus:border-transparent transition-all text-gray-500"
                     style={{ fontFamily: "var(--font-body)" }}
                   />
                   
+                  <textarea
+                    placeholder="Any specific concern or question for Dr. Priya?"
+                    rows={3}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 text-sm outline-none resize-none"
+                    style={{
+                      border: "1px solid var(--color-blush-deep)",
+                      background: "var(--color-ivory)",
+                      color: "var(--color-text-dark)",
+                      fontFamily: "var(--font-body)"
+                    }}
+                  />
+                  
                   <button 
-                    type="submit"
-                    className="w-full mt-2 rounded-full bg-[var(--color-rose)] text-white py-4 text-[18px] font-medium hover:bg-[var(--color-rose-dark)] hover:shadow-[0_8px_20px_rgba(212,113,138,0.3)] transition-all duration-300"
+                    type="button"
+                    onClick={handleBooking}
+                    className="w-full mt-2 rounded-full bg-[var(--color-rose)] text-white py-4 text-[18px] font-medium hover:bg-[var(--color-rose-dark)] hover:shadow-[0_8px_20px_rgba(212,113,138,0.3)] transition-all duration-300 text-center inline-block"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    Confirm Appointment &rarr;
+                    Book Appointment
                   </button>
                   
                   <p className="text-center text-[12px] text-[var(--color-text-muted)] mt-1" style={{ fontFamily: "var(--font-body)" }}>

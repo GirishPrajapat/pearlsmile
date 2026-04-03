@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
+import WelcomePopup from "@/components/ui/WelcomePopup";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${dmSans.variable} scroll-smooth`}>
       <body style={{ fontFamily: "var(--font-dm-sans, DM Sans, sans-serif)", overflowX: "hidden" }}>
         {children}
+        <WelcomePopup />
       </body>
     </html>
   );

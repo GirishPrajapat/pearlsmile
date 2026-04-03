@@ -19,6 +19,11 @@ export default function Hero() {
     mouseY.set(e.clientY - rect.top - rect.height / 2);
   };
 
+  const whatsappMessage = encodeURIComponent(
+    "Hi Dr. Priya, I'd like to book an appointment at PearlSmile Dental. Please let me know the available slots."
+  );
+  const whatsappURL = `https://wa.me/919082179832?text=${whatsappMessage}`;
+
   return (
     <div 
       className="relative w-full h-screen overflow-hidden bg-[var(--color-ivory)]"
@@ -77,7 +82,9 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
           >
             <a
-              href="#book"
+              href={whatsappURL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto text-center rounded-full bg-[var(--color-rose)] text-white px-8 py-3.5 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 font-medium"
               style={{ fontFamily: "var(--font-body)" }}
             >

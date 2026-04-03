@@ -32,6 +32,11 @@ export default function Navbar() {
     }
   };
 
+  const whatsappMessage = encodeURIComponent(
+    "Hi Dr. Priya, I'd like to book an appointment at PearlSmile Dental. Please let me know the available slots."
+  );
+  const whatsappURL = `https://wa.me/919082179832?text=${whatsappMessage}`;
+
   return (
     <>
       <nav
@@ -69,8 +74,9 @@ export default function Navbar() {
 
         <div className="hidden md:block shrink-0">
           <a
-            href="#book"
-            onClick={(e) => scrollToSection(e, "#book")}
+            href={whatsappURL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded-full bg-[var(--color-rose)] text-white px-6 py-2 text-sm hover:bg-[var(--color-rose-dark)] transition-colors duration-300 font-medium"
             style={{ fontFamily: "var(--font-body)" }}
           >
@@ -105,9 +111,10 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="#book"
-          onClick={(e) => scrollToSection(e, "#book")}
-          className="rounded-full bg-[var(--color-rose)] text-white px-8 py-3.5 text-lg hover:bg-[var(--color-rose-dark)] transition-colors duration-300"
+          href={whatsappURL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full bg-[var(--color-rose)] text-white px-8 py-3.5 text-lg hover:bg-[var(--color-rose-dark)] transition-colors duration-300 text-center inline-block"
           style={{ fontFamily: "var(--font-body)" }}
         >
           Book Appointment
